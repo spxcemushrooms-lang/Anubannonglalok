@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>โรงเรียนอนุบาล อบต.หนองละลอก · Anuban Nonglalok SAO School</title>
+<meta name="description" content="โรงเรียนอนุบาลสามภาษา ไทย อังกฤษ จีน เรียนฟรี ไม่เสียค่าเทอม สังกัดองค์การบริหารส่วนตำบลหนองละลอก อ.บ้านค่าย จ.ระยอง">
+<meta name="theme-color" content="#0a1a44">
+<meta property="og:type" content="website">
+<meta property="og:title" content="โรงเรียนอนุบาล อบต.หนองละลอก · ผู้นำ…สร้างอนาคต">
+<meta property="og:description" content="โรงเรียนสามภาษา ไทย · อังกฤษ · จีน เรียนฟรี ไม่เสียค่าเทอม พร้อมคลิปสัมภาษณ์ท่านนายกปราโมทย์ ฉันทมิตร์">
+<meta property="og:image" content="https://spxcemushrooms-lang.github.io/nonglalok-school/img/og.jpg">
+<link rel="icon" type="image/png" href="img/logo_badge.png">
+<link rel="apple-touch-icon" href="img/logo_badge.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Prompt:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="locked">
+
+<!-- ========== INTRO: ซองจดหมาย ========== -->
+<div id="intro" aria-label="หน้าเปิด">
+  <canvas id="stars"></canvas>
+  <div class="intro-inner">
+    <p class="intro-kicker">AN INVITATION FROM</p>
+    <p class="intro-mono"><b class="nw">อนุบาล <span>อบต.</span></b> <b class="nw">หนองละลอก</b></p>
+    <div class="envelope" id="envelope">
+      <div class="env-back"></div>
+      <div class="letter" id="letter">
+        <img src="img/logo_badge.png" alt="">
+        <p class="letter-script">ยินดีต้อนรับ</p>
+        <p class="letter-small">สู่โรงเรียนของเรา</p>
+      </div>
+      <div class="env-front"></div>
+      <div class="env-flap"></div>
+      <button class="seal" id="seal" aria-label="เปิดซอง"><img src="img/logo_badge.png" alt="ตราโรงเรียน"></button>
+    </div>
+    <button class="open-btn" id="openBtn"><span>แตะเพื่อเปิดซอง</span></button>
+    <p class="intro-foot">♪ เปิดเสียงเพื่อฟังเพลงโรงเรียน</p>
+  </div>
+</div>
+<canvas id="confetti"></canvas>
+
+<!-- music -->
+<audio id="song" src="audio/school_song.mp3" preload="none" loop></audio>
+<button id="musicBtn" aria-label="เปิด/ปิดเพลง" title="เพลง น้ำเงินแดง">
+  <span class="eq"><i></i><i></i><i></i><i></i></span><span class="mlabel">น้ำเงินแดง</span>
+</button>
+
+<!-- ========== NAV ========== -->
+<div id="progress"></div>
+<header id="nav">
+  <a href="#top" class="brand"><img src="img/logo_badge.png" alt=""><span class="nw">อนุบาล อบต.หนองละลอก</span></a>
+  <button id="burger" aria-label="เมนู"><i></i><i></i><i></i></button>
+  <nav id="menu">
+    <a href="#about">เกี่ยวกับเรา</a>
+    <a href="#leader">ผู้บริหาร</a>
+    <a href="#video">วิดีโอ</a>
+    <a href="#curriculum">หลักสูตร</a>
+    <a href="#moments">กิจกรรม</a>
+    <a href="#gallery">แกลเลอรี</a>
+    <a href="#awards">รางวัล</a>
+    <a href="#contact" class="pill">ติดต่อ</a>
+  </nav>
+</header>
+
+<main>
+<!-- ========== HERO: ภาพสไลด์ + ฟองแก้ว ========== -->
+<section id="top" class="hero">
+  <div class="hero-slides" id="heroSlides">
+    <img src="img/new/n30.jpg" alt="" class="on">
+    <img src="img/new/n09.jpg" alt="">
+    <img src="img/new/n27.jpg" alt="">
+    <img src="img/new/n23.jpg" alt="">
+    <img src="img/new/n04.jpg" alt="">
+  </div>
+  <div class="hero-shade"></div>
+  <div class="orbs" id="orbs" aria-hidden="true">
+    <i style="--s:180px;--x:8%;--y:18%;--d:0"></i>
+    <i style="--s:90px;--x:80%;--y:16%;--d:1"></i>
+    <i style="--s:260px;--x:76%;--y:62%;--d:2"></i>
+    <i style="--s:70px;--x:20%;--y:72%;--d:3"></i>
+    <i style="--s:120px;--x:50%;--y:84%;--d:4"></i>
+    <i style="--s:46px;--x:36%;--y:12%;--d:5"></i>
+  </div>
+  <div class="hero-content">
+    <p class="kicker h-anim">WELCOME TO OUR SCHOOL</p>
+    <img class="hero-logo h-anim" src="img/logo_badge.png" alt="ตราโรงเรียนอนุบาล อบต.หนองละลอก">
+    <h1 class="h-anim">
+      <span class="t1">โรงเรียนอนุบาล</span>
+      <span class="t2"><span class="nw">อบต.</span><span class="nw">หนองละลอก</span></span>
+    </h1>
+    <p class="en h-anim">ANUBAN NONGLALOK SAO SCHOOL</p>
+    <div class="hero-tags h-anim"><span>ไทย</span><b>·</b><span>English</span><b>·</b><span>中文</span></div>
+    <p class="hero-sub h-anim"><span class="nw">ปฐมวัย อนุบาล 2–3</span> · <span class="nw">กำลังขยายถึง ป.6</span></p>
+    <div class="hero-cta h-anim">
+      <a href="#video" class="btn gold">▶ ชมคลิป ผู้นำ…สร้างอนาคต</a>
+      <a href="#about" class="btn ghost">รู้จักโรงเรียน</a>
+    </div>
+  </div>
+  <a href="#about" class="scroll-hint">SCROLL <span>↓</span></a>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section id="about" class="sec paper">
+  <div class="wrap narrow center">
+    <p class="script reveal">Welcome</p>
+    <h2 class="reveal">โรงเรียนของชุมชน<br><em>มาตรฐานระดับนานาชาติ</em></h2>
+    <div class="divider reveal"><span></span><img src="img/logo_badge.png" alt=""><span></span></div>
+    <p class="lead reveal">โรงเรียนอนุบาลสามภาษาในสังกัดองค์การบริหารส่วนตำบลหนองละลอก สร้างขึ้นเพื่อให้เด็กทุกคนในตำบลได้เรียนในโรงเรียนคุณภาพใกล้บ้าน <strong>โดยไม่ต้องเสียค่าเทอม</strong> และกำลังขยายให้เรียนต่อเนื่องจนจบชั้นประถมศึกษาปีที่ 6</p>
+    <blockquote class="vision reveal">“นำร่องสองภาษา พัฒนานวัตกรรม<br>ก้าวนำเทคโนโลยี มีชีวิตพอเพียง”</blockquote>
+  </div>
+  <div class="wrap stats">
+    <div class="stat reveal"><b data-count="3">0</b><span class="u">ภาษา</span><p>ไทย อังกฤษ จีน กับครูไทย ครูต่างชาติ และครูจีน</p></div>
+    <div class="stat reveal"><b data-count="0">0</b><span class="u">บาท</span><p>ค่าเทอม เพื่อให้ทุกครอบครัวเข้าถึงได้</p></div>
+    <div class="stat reveal"><b data-count="40">0</b><span class="u">ล้านบาท</span><p>อาคารเรียนใหม่ 4 ชั้น พร้อมห้องเรียนอัจฉริยะ</p></div>
+    <div class="stat reveal"><b data-count="49">0</b><span class="u">คน</span><p>ผู้สำเร็จชั้นอนุบาล 3 ปีการศึกษา 2568</p></div>
+  </div>
+</section>
+
+<!-- ========== WHY: การ์ดเรืองแสง + เครื่องบินกระดาษ ========== -->
+<section id="why" class="sec why">
+  <div class="wrap center">
+    <p class="kicker reveal">WHY NONGLALOK</p>
+    <h2 class="reveal light">ทำไมต้อง <em class="nw">อนุบาล อบต.</em><em class="nw">หนองละลอก</em></h2>
+  </div>
+  <div class="wrap why-grid" id="whyGrid">
+    <svg class="plane" id="plane" viewBox="0 0 64 64" aria-hidden="true">
+      <path d="M4 30 L60 6 L40 58 L30 36 Z" fill="#fff"/><path d="M30 36 L60 6 L24 40 Z" fill="#d8def3"/><path d="M30 36 L34 52 L40 58 Z" fill="#b9c4e6"/>
+    </svg>
+    <article class="w-card big"><span class="w-no">01</span><h3>สามภาษา</h3><p>ไทย · English · 中文 กับครูไทย ครูต่างชาติ และครูจีน ใช้ภาษาจริงทุกวัน</p><div class="w-big">3</div></article>
+    <article class="w-card"><span class="w-no">02</span><h3>เรียนฟรี</h3><p>ไม่เสียค่าเทอม ทุกครอบครัวเข้าถึงได้</p><div class="w-big">0฿</div></article>
+    <article class="w-card"><span class="w-no">03</span><h3>Smart Classroom</h3><p>จออัจฉริยะ ห้องคอมพิวเตอร์ อาคารใหม่ 4 ชั้น</p></article>
+    <article class="w-card"><span class="w-no">04</span><h3>เรียนต่อถึง ป.6</h3><p>กำลังขยายชั้นเรียน เรียนต่อเนื่องใกล้บ้าน</p></article>
+    <article class="w-card wide"><span class="w-no">05</span><h3>ไม่ทิ้งใครไว้ข้างหลัง</h3><p>ลดความเหลื่อมล้ำ เด็กทุกคนในตำบลมีโอกาสเท่ากัน</p></article>
+  </div>
+</section>
+
+<!-- ========== LEADER ========== -->
+<section id="leader" class="sec dark">
+  <canvas class="sparkle"></canvas>
+  <div class="wrap center">
+    <p class="kicker reveal">LEADERSHIP</p>
+    <h2 class="reveal light">ผู้บริหาร<br><em>…ผู้สร้างอนาคต</em></h2>
+    <div class="gold-line reveal"></div>
+  </div>
+  <div class="wrap trio">
+    <figure class="frame reveal">
+      <div class="frame-img"><img src="img/new/mayor.jpg" alt="นายปราโมทย์ ฉันทมิตร์" loading="lazy" style="object-position:50% 30%"></div>
+      <figcaption><span class="script">Leader</span><strong>นายปราโมทย์ ฉันทมิตร์</strong><small>นายกองค์การบริหารส่วนตำบลหนองละลอก<br>ผู้บริหารสูงสุด</small></figcaption>
+    </figure>
+    <figure class="frame reveal">
+      <div class="frame-img"><img src="img/new/deputy.jpg" alt="นายประพันธ์ ภูมิวารินทร์" loading="lazy" style="object-position:50% 25%" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="mono-fb">ป</span></div>
+      <figcaption><span class="script">Vision</span><strong>นายประพันธ์ ภูมิวารินทร์</strong><small>รองนายกองค์การบริหารส่วนตำบลหนองละลอก<br>ขับเคลื่อนการศึกษา</small></figcaption>
+    </figure>
+    <figure class="frame reveal">
+      <div class="frame-img"><img src="img/new/director.jpg" alt="นางสาววัชราภรณ์ นาทองบ่อ" loading="lazy" style="object-position:50% 20%"></div>
+      <figcaption><span class="script">Principal</span><strong>นางสาววัชราภรณ์ นาทองบ่อ</strong><small>รักษาราชการแทนผู้อำนวยการโรงเรียน<br>หัวหน้าฝ่ายส่งเสริมสวัสดิการสังคม · ตั้งแต่ 21 ก.พ. 2566</small></figcaption>
+    </figure>
+  </div>
+  <div class="wrap narrow">
+    <blockquote class="big-quote reveal">
+      <span class="qmark">“</span>
+      สมัยก่อนลุงเรียนวัด ไม่มีโรงเรียนสองภาษา ไม่มีครูต่างชาติ จึงกลับมาสร้างโรงเรียนนี้ให้ลูกหลานคนหนองละลอก
+      <cite>นายปราโมทย์ ฉันทมิตร์ · จากการสัมภาษณ์โดย ด.ญ.ชนัญชิดา แสงสุข (น้องออกัส)</cite>
+    </blockquote>
+  </div>
+  <div class="wrap goals">
+    <p class="goals-head reveal">นโยบายหลักคือ <b>ลดความเหลื่อมล้ำ</b> ให้เด็กทุกคนในตำบลมีโอกาสเท่ากัน</p>
+    <div class="goal reveal"><i>01</i><h3>อ่านออก เขียนได้ คิดเป็น</h3><p>“เราจะไม่ทิ้งใครไว้ข้างหลัง”</p></div>
+    <div class="goal reveal"><i>02</i><h3>เป็นคนดี</h3><p>มีความรับผิดชอบ สามัคคี ไม่ทะเลาะกัน</p></div>
+    <div class="goal reveal"><i>03</i><h3>ค้นหาความถนัด</h3><p>ภาษา กีฬา ดนตรี นาฏศิลป์ แล้วต่อยอดให้เก่ง</p></div>
+    <div class="goal reveal"><i>04</i><h3>สื่อสารได้ 3 ภาษา</h3><p>พื้นฐานแน่นก่อนเรียนต่อมัธยม</p></div>
+  </div>
+</section>
+
+<!-- ========== VIDEO ========== -->
+<section id="video" class="sec video-sec">
+  <div class="wrap center">
+    <p class="kicker red reveal">FEATURED FILM</p>
+    <h2 class="reveal">ชมคลิป <em>ผู้นำ…สร้างอนาคต</em></h2>
+    <p class="sub reveal">เรื่องราวของโรงเรียน จากคำบอกเล่าของท่านนายกและรองนายก · ความยาวประมาณ 8 นาที</p>
+  </div>
+  <div class="wrap player-wrap reveal">
+    <div class="player" id="player">
+      <video id="film" preload="none" playsinline controls poster="img/video_poster.jpg">
+        <source src="video/nonglalok_leader_720p.mp4" type="video/mp4">
+      </video>
+      <button class="play-big" id="playBig" aria-label="เล่นวิดีโอ"><span class="ring"></span><span class="tri"></span></button>
+    </div>
+    <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+  </div>
+</section>
+
+<!-- ========== CURRICULUM ========== -->
+<section id="curriculum" class="sec paper">
+  <div class="wrap center">
+    <p class="script reveal">Trilingual</p>
+    <h2 class="reveal">หลักสูตร <em>สามภาษา</em></h2>
+    <p class="sub reveal">เรียนจากการใช้ภาษาจริงทุกวัน ไม่ใช่การท่องจำ และเป็นต้นแบบที่หน่วยงานท้องถิ่นอื่นเดินทางมาศึกษาดูงาน</p>
+  </div>
+  <div class="wrap langs">
+    <article class="lang tilt reveal">
+      <div class="lang-img"><img src="img/new/thumb/n17.jpg" alt="" loading="lazy"></div>
+      <div class="lang-body"><span class="glyph">ก</span><h3>ไทย</h3><small>ครูไทย</small><p>อ่านออก เขียนได้ คิดเป็น เป็นรากฐานของทุกวิชา</p></div>
+    </article>
+    <article class="lang tilt reveal">
+      <div class="lang-img"><img src="img/new/thumb/n03.jpg" alt="" loading="lazy"></div>
+      <div class="lang-body"><span class="glyph">A</span><h3>English</h3><small>ครูต่างชาติ</small><p>ฝึกฟัง พูด และสื่อสารกับชาวต่างชาติได้อย่างมั่นใจ</p></div>
+    </article>
+    <article class="lang tilt reveal">
+      <div class="lang-img"><img src="img/new/thumb/n24.jpg" alt="" loading="lazy"></div>
+      <div class="lang-body"><span class="glyph">中</span><h3>中文</h3><small>ครูจีน</small><p>ใช้ภาษาจริงและโต้ตอบกับคุณครูในทุกบทเรียน</p></div>
+    </article>
+  </div>
+  <div class="wrap chips reveal">
+    <span>เรียนฟรี</span><span>Active Learning</span><span>Smart Classroom</span><span>ประเมินครูทุกภาคเรียน</span>
+  </div>
+</section>
+
+<!-- ========== MOMENTS: การ์ด 3 มิติกางออกตามการเลื่อน ========== -->
+<section id="moments" class="fan-sec">
+  <div class="fan-sticky">
+    <div class="fan-head">
+      <p class="kicker">STUDENT LIFE</p>
+      <h2 class="light">ค้นหาความถนัด <em>แล้วต่อยอดให้เก่ง</em></h2>
+    </div>
+    <div class="fan" id="fan">
+      <figure><img src="img/new/thumb/n22.jpg" alt=""><figcaption>นาฏศิลป์</figcaption></figure>
+      <figure><img src="img/new/thumb/n32.jpg" alt=""><figcaption>ดนตรี · กลองชุด</figcaption></figure>
+      <figure><img src="img/new/thumb/n29.jpg" alt=""><figcaption>วงดุริยางค์</figcaption></figure>
+      <figure><img src="img/new/thumb/n07.jpg" alt=""><figcaption>โรลเลอร์สกี</figcaption></figure>
+      <figure><img src="img/new/thumb/n08.jpg" alt=""><figcaption>นักกีฬาตัวน้อย</figcaption></figure>
+      <figure><img src="img/new/thumb/n15.jpg" alt=""><figcaption>การแสดงบนเวที</figcaption></figure>
+      <figure><img src="img/new/thumb/n25.jpg" alt=""><figcaption>สืบสานประเพณี</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ========== EXPAND: ภาพขยายเต็มจอ ========== -->
+<section class="expand-sec" id="expand">
+  <div class="expand-sticky">
+    <div class="expand-frame" id="expandFrame"><img src="img/new/n30.jpg" alt="ครอบครัวอนุบาล อบต.หนองละลอก"></div>
+    <div class="expand-text" id="expandText">
+      <p class="kicker">ONE FAMILY</p>
+      <h2>ครอบครัว<br><em>อนุบาล อบต.หนองละลอก</em></h2>
+      <p>ร่วมสร้างฝัน สู่วันใหม่ที่สดใส</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== GALLERY ========== -->
+<section id="gallery" class="sec dark">
+  <canvas class="sparkle"></canvas>
+  <div class="wrap center">
+    <p class="kicker reveal">GALLERY</p>
+    <h2 class="reveal light">ภาพกิจกรรม <em>ในรั้วโรงเรียน</em></h2>
+    <p class="sub light reveal">แตะที่ภาพเพื่อดูขนาดใหญ่</p>
+  </div>
+  <div class="wrap masonry" id="masonry"></div>
+</section>
+
+<!-- ========== AWARDS ========== -->
+<section id="awards" class="sec paper">
+  <div class="wrap center">
+    <p class="script reveal">Recognition</p>
+    <h2 class="reveal">รางวัล <em>และการยอมรับ</em></h2>
+  </div>
+  <div class="wrap award-grid">
+    <article class="award reveal"><div class="medal">★</div><h3>รางวัลส่งเสริมการศึกษาดีเด่น</h3><p>โครงการ 1 ล้านกล้าความดี ตอบแทนคุณแผ่นดิน โดยมูลนิธิเพื่อสังคมไทย มอบแก่ นายปราโมทย์ ฉันทมิตร์</p></article>
+    <article class="award reveal"><div class="medal">★</div><h3>อปท.น่าอยู่สำหรับเด็กและเยาวชน ต้นแบบดีเด่น ปี 2569</h3><p>มอบแก่องค์การบริหารส่วนตำบลหนองละลอก</p></article>
+    <article class="award reveal"><div class="medal">★</div><h3>ต้นแบบที่หน่วยงานอื่นมาศึกษาดูงาน</h3><p>อบต.หัวสำโรง จ.ฉะเชิงเทรา (51 คน) · เทศบาลนครแหลมฉบัง จ.ชลบุรี · อบต.แปลงยาว (160 คน)</p></article>
+  </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section id="contact" class="sec dark contact">
+  <canvas class="sparkle"></canvas>
+  <div class="wrap center">
+    <img class="contact-logo reveal" src="img/logo_badge.png" alt="">
+    <p class="script gold reveal">See you at school</p>
+    <h2 class="reveal light">สร้างรากฐานที่มั่นคง<br><em>พัฒนาศักยภาพผู้เรียน ก้าวสู่อนาคตที่ยั่งยืน</em></h2>
+  </div>
+  <div class="wrap contact-grid">
+    <a class="c-card reveal" href="tel:038642365"><span class="ic">☎</span><small>โทรศัพท์</small><b>038 642 365</b></a>
+    <a class="c-card reveal" href="https://www.nonglalok.go.th" target="_blank" rel="noopener"><span class="ic">🌐</span><small>เว็บไซต์ อบต.</small><b>www.nonglalok.go.th</b></a>
+    <a class="c-card reveal" href="https://www.facebook.com/profile.php?id=100092679495239" target="_blank" rel="noopener"><span class="ic">f</span><small>Facebook โรงเรียน</small><b>Anuban Nonglalok SAO school</b></a>
+    <a class="c-card reveal" href="https://www.facebook.com/Nonglalok.Rayong" target="_blank" rel="noopener"><span class="ic">f</span><small>Facebook อบต.</small><b>อบต.หนองละลอก : Nonglalok SAO</b></a>
+  </div>
+  <div class="wrap map reveal">
+    <iframe title="แผนที่" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      src="https://maps.google.com/maps?q=%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%99%E0%B8%AD%E0%B8%99%E0%B8%B8%E0%B8%9A%E0%B8%B2%E0%B8%A5%20%E0%B8%AD%E0%B8%9A%E0%B8%95.%E0%B8%AB%E0%B8%99%E0%B8%AD%E0%B8%87%E0%B8%A5%E0%B8%B0%E0%B8%A5%E0%B8%AD%E0%B8%81%20%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B9%88%E0%B8%B2%E0%B8%A2%20%E0%B8%A3%E0%B8%B0%E0%B8%A2%E0%B8%AD%E0%B8%87&z=14&output=embed"></iframe>
+  </div>
+  <footer class="wrap foot">
+    <p>โรงเรียนอนุบาล องค์การบริหารส่วนตำบลหนองละลอก · อำเภอบ้านค่าย จังหวัดระยอง</p>
+    <p class="tiny">ภาพจากเพจ Facebook ของโรงเรียนอนุบาล อบต.หนองละลอก และ อบต.หนองละลอก · เพลง “น้ำเงินแดง” · ข้อมูล ณ พฤศจิกายน 2569</p>
+  </footer>
+</section>
+</main>
+
+<div id="lightbox" aria-hidden="true">
+  <button class="lb-close" aria-label="ปิด">✕</button>
+  <button class="lb-prev" aria-label="ก่อนหน้า">‹</button>
+  <figure><img alt=""><figcaption></figcaption></figure>
+  <button class="lb-next" aria-label="ถัดไป">›</button>
+</div>
+<a href="#top" id="toTop" aria-label="กลับด้านบน">↑</a>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
