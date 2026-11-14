@@ -269,8 +269,8 @@
 
   /* gallery from new photos */
   const caps = {0:'เดินแถวอย่างเป็นระเบียบ',1:'ตั้งใจร่วมกิจกรรม',2:'ขบวนแห่เทียนพรรษา',3:'คุณครูกับนักเรียน',4:'ร่วมงานประเพณี',5:'พิธีทางศาสนา',6:'กิจกรรมรวมในหอประชุม',9:'ขบวนนักเรียน',10:'ผู้ใหญ่ร่วมขบวน',11:'ไหว้อย่างงดงาม',12:'นั่งฟังอย่างตั้งใจ',13:'ร่วมกิจกรรมที่วัด',14:'กิจกรรมกับคุณครู',16:'สำรวมในพิธี',18:'ร่วมพิธีพร้อมกัน',19:'พนมมือไหว้',20:'ฟังเทศน์',21:'หอประชุมเต็มไปด้วยนักเรียน',23:'ภาพหมู่ที่วัด',26:'ร่วมขบวนอย่างสนุก',27:'ซ้อมการแสดง',31:'การแสดงของนักเรียน',30:'ภาพหมู่ครอบครัวอนุบาล',2.5:''};
-  const order = [30,9,22,1,27,32,3,21,7,11,26,15,23,4,29,12,8,6,19,24,10,31,0,13,16,17,2,14,5,18,20,25];
-  const capMore = {22:'นาฏศิลป์',32:'ดนตรี',7:'โรลเลอร์สกี',8:'นักกีฬาตัวน้อย',15:'การแสดงบนเวที',29:'วงดุริยางค์',24:'คุณครูกับนักเรียน',17:'คุณครูกับนักเรียน',25:'สืบสานประเพณี'};
+  const order = [1,3,5,6,11,12,14,16,17,18,19,20,21,23,24,31];
+  const capMore = {24:'คุณครูกับนักเรียน',17:'คุณครูดูแลอย่างใกล้ชิด',3:'คุณครูกับนักเรียน',22:'นาฏศิลป์',32:'ดนตรี',7:'โรลเลอร์สกี',8:'นักกีฬาตัวน้อย',15:'การแสดงบนเวที',29:'วงดุริยางค์',24:'คุณครูกับนักเรียน',17:'คุณครูกับนักเรียน',25:'สืบสานประเพณี'};
   const m = document.getElementById('masonry');
   if (m) {
     m.innerHTML = order.map(i => { const n = String(i).padStart(2, '0'); const c = caps[i] || capMore[i] || ''; return `<a href="img/new/n${n}.jpg" data-cap="${c}"><img src="img/new/thumb/n${n}.jpg" alt="${c}" loading="lazy"></a>`; }).join('');
@@ -327,4 +327,110 @@
     requestAnimationFrame(frame);
   }
   frame();
+})();
+
+/* ================= v3 ================= */
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
+
+  /* smooth scroll (Lenis) */
+  let lenis = null;
+  if (window.Lenis && !reduce) {
+    lenis = new Lenis({ lerp: .09, smoothWheel: true });
+    const raf = t => { lenis.raf(t); requestAnimationFrame(raf); }; requestAnimationFrame(raf);
+    document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+      const id = a.getAttribute('href'); if (id.length < 2) return; const el = document.querySelector(id); if (!el) return;
+      e.preventDefault(); lenis.scrollTo(el, { offset: -60 });
+    }));
+    if (document.body.classList.contains('locked')) lenis.stop();
+    const ob = new MutationObserver(() => { if (!document.body.classList.contains('locked')) { lenis.start(); ob.disconnect(); } });
+    ob.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+  }
+
+  /* split headings into words (Thai-aware) */
+  const seg = window.Intl && Intl.Segmenter ? new Intl.Segmenter('th', { granularity: 'word' }) : null;
+  document.querySelectorAll('.split').forEach(h => {
+    const walk = node => {
+      [...node.childNodes].forEach(n => {
+        if (n.nodeType === 3) {
+          const parts = seg ? [...seg.segment(n.textContent)].map(x => x.segment) : n.textContent.split(/(\s+)/);
+          const frag = document.createDocumentFragment();
+          parts.forEach(p => {
+            if (!p.trim()) { frag.appendChild(document.createTextNode(p)); return; }
+            const w = document.createElement('span'); w.className = 'w';
+            const i = document.createElement('span'); i.textContent = p; w.appendChild(i); frag.appendChild(w);
+          });
+          n.replaceWith(frag);
+        } else if (n.nodeType === 1 && n.tagName !== 'BR') walk(n);
+      });
+    };
+    walk(h);
+    h.querySelectorAll('.w>span').forEach((s, k) => s.style.transitionDelay = (k * 45) + 'ms');
+  });
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .2 });
+  document.querySelectorAll('.split, .wipe').forEach(el => io.observe(el));
+
+  /* custom cursor + magnetic buttons */
+  if (fine && !reduce) {
+    const c = document.getElementById('cursor'), label = c.querySelector('span');
+    let x = innerWidth / 2, y = innerHeight / 2, cx = x, cy = y;
+    addEventListener('pointermove', e => { x = e.clientX; y = e.clientY; }, { passive: true });
+    (function loop() { cx += (x - cx) * .2; cy += (y - cy) * .2; c.style.transform = `translate(${cx}px,${cy}px)`; requestAnimationFrame(loop); })();
+    const big = (sel, txt) => document.addEventListener('pointerover', e => {
+      const t = e.target.closest(sel); if (!t) return;
+      c.classList.add('big'); label.textContent = txt;
+      t.addEventListener('pointerleave', () => c.classList.remove('big'), { once: true });
+    });
+    big('#masonry a, .td-img, .hz-card', 'ดู');
+    big('.lcard', 'ฟัง');
+    big('.word', 'พลิก');
+    document.querySelectorAll('.btn, .say, .open-btn, #musicBtn, .c-card').forEach(b => {
+      b.addEventListener('pointermove', e => { const r = b.getBoundingClientRect(); b.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .25}px,${(e.clientY - r.top - r.height / 2) * .35}px)`; });
+      b.addEventListener('pointerleave', () => b.style.transform = '');
+    });
+  }
+
+  /* speech */
+  const song = document.getElementById('song');
+  const voices = () => (window.speechSynthesis ? speechSynthesis.getVoices() : []);
+  if (window.speechSynthesis) speechSynthesis.onvoiceschanged = voices;
+  function say(text, lang, el) {
+    if (!window.speechSynthesis) return;
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text.replace(/\s[a-zāáǎàēéěèīíǐìōóǒòūúǔùü]+$/i, ''));
+    u.lang = lang; const v = voices().find(v => v.lang.replace('_', '-').startsWith(lang.slice(0, 2))); if (v) u.voice = v;
+    u.rate = lang.startsWith('th') ? .95 : .9;
+    const vol = song && !song.paused; if (vol) song.volume = .15;
+    if (el) el.classList.add('speaking');
+    u.onend = u.onerror = () => { if (el) el.classList.remove('speaking'); if (vol) song.volume = .55; };
+    speechSynthesis.speak(u);
+  }
+  document.querySelectorAll('.lcard').forEach(card => {
+    card.addEventListener('click', () => say(card.dataset.say, card.dataset.lang, card));
+    card.addEventListener('pointermove', e => { const r = card.getBoundingClientRect(); card.style.setProperty('--mx', e.clientX - r.left + 'px'); card.style.setProperty('--my', e.clientY - r.top + 'px'); });
+  });
+  const LBL = ['TH', 'EN', '中'];
+  document.querySelectorAll('.word').forEach(w => {
+    const list = JSON.parse(w.dataset.w); let k = 0;
+    w.addEventListener('click', () => {
+      k = (k + 1) % list.length;
+      w.classList.remove('flip'); void w.offsetWidth; w.classList.add('flip');
+      setTimeout(() => { w.querySelector('b').textContent = list[k][0]; w.querySelector('i').textContent = LBL[k]; w.classList.remove('l1', 'l2'); if (k) w.classList.add('l' + k); }, 300);
+      say(list[k][0], list[k][1]);
+    });
+  });
+
+  /* horizontal pinned scroll */
+  const hz = document.getElementById('explore'), track = document.getElementById('hzTrack');
+  if (hz && track && !reduce) {
+    const cards = [...track.children];
+    (function tick() {
+      const r = hz.getBoundingClientRect(), p = Math.min(1, Math.max(0, -r.top / (r.height - innerHeight)));
+      const max = track.scrollWidth - innerWidth + Math.max(16, (innerWidth - 1180) / 2) * 2;
+      track.style.transform = `translate3d(${-p * max}px,0,0)`;
+      cards.forEach((c, i) => c.querySelector('img').style.setProperty('--px', `${-8 - p * 8 + i}%`));
+      requestAnimationFrame(tick);
+    })();
+  }
 })();

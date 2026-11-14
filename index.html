@@ -57,7 +57,7 @@
     <a href="#about">เกี่ยวกับเรา</a>
     <a href="#leader">ผู้บริหาร</a>
     <a href="#video">วิดีโอ</a>
-    <a href="#curriculum">หลักสูตร</a>
+    <a href="#curriculum">สามภาษา</a>
     <a href="#moments">กิจกรรม</a>
     <a href="#gallery">แกลเลอรี</a>
     <a href="#awards">รางวัล</a>
@@ -69,13 +69,14 @@
 <!-- ========== HERO: ภาพสไลด์ + ฟองแก้ว ========== -->
 <section id="top" class="hero">
   <div class="hero-slides" id="heroSlides">
-    <img src="img/new/n30.jpg" alt="" class="on">
-    <img src="img/new/n09.jpg" alt="">
+    <img src="img/new/n09.jpg" alt="" class="on">
     <img src="img/new/n27.jpg" alt="">
-    <img src="img/new/n23.jpg" alt="">
     <img src="img/new/n04.jpg" alt="">
+    <img src="img/new/n13.jpg" alt="">
+    <img src="img/new/n00.jpg" alt="">
   </div>
   <div class="hero-shade"></div>
+  <canvas id="hero3d" aria-hidden="true"></canvas>
   <div class="orbs" id="orbs" aria-hidden="true">
     <i style="--s:180px;--x:8%;--y:18%;--d:0"></i>
     <i style="--s:90px;--x:80%;--y:16%;--d:1"></i>
@@ -102,11 +103,24 @@
   <a href="#about" class="scroll-hint">SCROLL <span>↓</span></a>
 </section>
 
+
+<!-- ========== MARQUEE ========== -->
+<div class="marquee" aria-hidden="true">
+  <div class="mq-row"><div class="mq-track">
+    <span>ไทย</span><i>✦</i><span>English</span><i>✦</i><span>中文</span><i>✦</i><span>เรียนฟรี</span><i>✦</i><span>Smart Classroom</span><i>✦</i><span>ใกล้บ้าน มาตรฐานสากล</span><i>✦</i>
+    <span>ไทย</span><i>✦</i><span>English</span><i>✦</i><span>中文</span><i>✦</i><span>เรียนฟรี</span><i>✦</i><span>Smart Classroom</span><i>✦</i><span>ใกล้บ้าน มาตรฐานสากล</span><i>✦</i>
+  </div></div>
+  <div class="mq-row rev"><div class="mq-track">
+    <span>สวัสดี</span><i>●</i><span>Hello</span><i>●</i><span>你好</span><i>●</i><span>ขอบคุณ</span><i>●</i><span>Thank you</span><i>●</i><span>谢谢</span><i>●</i>
+    <span>สวัสดี</span><i>●</i><span>Hello</span><i>●</i><span>你好</span><i>●</i><span>ขอบคุณ</span><i>●</i><span>Thank you</span><i>●</i><span>谢谢</span><i>●</i>
+  </div></div>
+</div>
+
 <!-- ========== ABOUT ========== -->
 <section id="about" class="sec paper">
   <div class="wrap narrow center">
     <p class="script reveal">Welcome</p>
-    <h2 class="reveal">โรงเรียนของชุมชน<br><em>มาตรฐานระดับนานาชาติ</em></h2>
+    <h2 class="reveal split">โรงเรียนของชุมชน<br><em>มาตรฐานระดับนานาชาติ</em></h2>
     <div class="divider reveal"><span></span><img src="img/logo_badge.png" alt=""><span></span></div>
     <p class="lead reveal">โรงเรียนอนุบาลสามภาษาในสังกัดองค์การบริหารส่วนตำบลหนองละลอก สร้างขึ้นเพื่อให้เด็กทุกคนในตำบลได้เรียนในโรงเรียนคุณภาพใกล้บ้าน <strong>โดยไม่ต้องเสียค่าเทอม</strong> และกำลังขยายให้เรียนต่อเนื่องจนจบชั้นประถมศึกษาปีที่ 6</p>
     <blockquote class="vision reveal">“นำร่องสองภาษา พัฒนานวัตกรรม<br>ก้าวนำเทคโนโลยี มีชีวิตพอเพียง”</blockquote>
@@ -116,6 +130,24 @@
     <div class="stat reveal"><b data-count="0">0</b><span class="u">บาท</span><p>ค่าเทอม เพื่อให้ทุกครอบครัวเข้าถึงได้</p></div>
     <div class="stat reveal"><b data-count="40">0</b><span class="u">ล้านบาท</span><p>อาคารเรียนใหม่ 4 ชั้น พร้อมห้องเรียนอัจฉริยะ</p></div>
     <div class="stat reveal"><b data-count="49">0</b><span class="u">คน</span><p>ผู้สำเร็จชั้นอนุบาล 3 ปีการศึกษา 2568</p></div>
+  </div>
+</section>
+
+<!-- ========== JOURNEY: อนุภาค 3 มิติเปลี่ยนรูปตามการเลื่อน ========== -->
+<section id="journey" class="journey">
+  <div class="jr-sticky">
+    <canvas id="morph3d" aria-hidden="true"></canvas>
+    <div class="jr-text">
+      <p class="kicker red">THE LEARNING JOURNEY</p>
+      <div class="jr-steps">
+        <article class="jr-step on"><i>01</i><h2>จุดเริ่มต้น<br><em>ของทุกความฝัน</em></h2><p>โรงเรียนของชุมชน ที่เด็กทุกคนในตำบลหนองละลอกได้เรียนอย่างเท่าเทียม</p></article>
+        <article class="jr-step"><i>02</i><h2>สามภาษา<br><em>เปิดโลกกว้าง</em></h2><p>ไทย · English · 中文 สื่อสารได้กับผู้คนทั่วโลก ตั้งแต่ปฐมวัย</p></article>
+        <article class="jr-step"><i>03</i><h2>อ่านออก เขียนได้<br><em>คิดเป็น</em></h2><p>รากฐานที่มั่นคง เรียนรู้ผ่านการลงมือทำ ไม่ทิ้งใครไว้ข้างหลัง</p></article>
+        <article class="jr-step"><i>04</i><h2>ก้าวสู่<br><em>อนาคตที่สดใส</em></h2><p>ต่อยอดถึงชั้นประถมศึกษาปีที่ 6 พร้อมเติบโตเป็นคนดีของสังคม</p></article>
+      </div>
+      <div class="jr-bar"><span id="jrBar"></span></div>
+    </div>
+    <p class="jr-hint">เลื่อนลงเพื่อดูการเปลี่ยนรูป ↓</p>
   </div>
 </section>
 
@@ -142,7 +174,7 @@
   <canvas class="sparkle"></canvas>
   <div class="wrap center">
     <p class="kicker reveal">LEADERSHIP</p>
-    <h2 class="reveal light">ผู้บริหาร<br><em>…ผู้สร้างอนาคต</em></h2>
+    <h2 class="reveal split light">ผู้บริหาร<br><em>…ผู้สร้างอนาคต</em></h2>
     <div class="gold-line reveal"></div>
   </div>
   <div class="wrap trio">
@@ -179,7 +211,7 @@
 <section id="video" class="sec video-sec">
   <div class="wrap center">
     <p class="kicker red reveal">FEATURED FILM</p>
-    <h2 class="reveal">ชมคลิป <em>ผู้นำ…สร้างอนาคต</em></h2>
+    <h2 class="reveal split">ชมคลิป <em>ผู้นำ…สร้างอนาคต</em></h2>
     <p class="sub reveal">เรื่องราวของโรงเรียน จากคำบอกเล่าของท่านนายกและรองนายก · ความยาวประมาณ 8 นาที</p>
   </div>
   <div class="wrap player-wrap reveal">
@@ -193,29 +225,52 @@
   </div>
 </section>
 
-<!-- ========== CURRICULUM ========== -->
-<section id="curriculum" class="sec paper">
+<!-- ========== CURRICULUM: สามภาษา ========== -->
+<section id="curriculum" class="sec tri-sec">
   <div class="wrap center">
     <p class="script reveal">Trilingual</p>
-    <h2 class="reveal">หลักสูตร <em>สามภาษา</em></h2>
-    <p class="sub reveal">เรียนจากการใช้ภาษาจริงทุกวัน ไม่ใช่การท่องจำ และเป็นต้นแบบที่หน่วยงานท้องถิ่นอื่นเดินทางมาศึกษาดูงาน</p>
+    <h2 class="reveal split">หลักสูตร <em>สามภาษา</em></h2>
+    <p class="sub reveal">เรียนจากการใช้ภาษาจริงทุกวัน ไม่ใช่การท่องจำ</p>
   </div>
-  <div class="wrap langs">
-    <article class="lang tilt reveal">
-      <div class="lang-img"><img src="img/new/thumb/n17.jpg" alt="" loading="lazy"></div>
-      <div class="lang-body"><span class="glyph">ก</span><h3>ไทย</h3><small>ครูไทย</small><p>อ่านออก เขียนได้ คิดเป็น เป็นรากฐานของทุกวิชา</p></div>
+  <div class="wrap lang3">
+    <article class="lcard th reveal" data-say="สวัสดีครับ ยินดีต้อนรับสู่โรงเรียนของเรา" data-lang="th-TH">
+      <div class="lc-glyph"><span>ก</span><span>ข</span><span>ค</span></div>
+      <div class="lc-body">
+        <small>ภาษาไทย · ครูไทย</small>
+        <h3 class="lc-hello">สวัสดี</h3>
+        <p>อ่านออก เขียนได้ คิดเป็น รากฐานของทุกวิชา</p>
+        <button class="say">🔊 ฟังเสียง</button>
+      </div>
     </article>
-    <article class="lang tilt reveal">
-      <div class="lang-img"><img src="img/new/thumb/n03.jpg" alt="" loading="lazy"></div>
-      <div class="lang-body"><span class="glyph">A</span><h3>English</h3><small>ครูต่างชาติ</small><p>ฝึกฟัง พูด และสื่อสารกับชาวต่างชาติได้อย่างมั่นใจ</p></div>
+    <article class="lcard en reveal" data-say="Hello! Welcome to our school." data-lang="en-US">
+      <div class="lc-glyph"><span>A</span><span>B</span><span>C</span></div>
+      <div class="lc-body">
+        <small>English · ครูต่างชาติ</small>
+        <h3 class="lc-hello">Hello!</h3>
+        <p>ฝึกฟัง พูด และสื่อสารกับชาวต่างชาติได้อย่างมั่นใจ</p>
+        <button class="say">🔊 ฟังเสียง</button>
+      </div>
     </article>
-    <article class="lang tilt reveal">
-      <div class="lang-img"><img src="img/new/thumb/n24.jpg" alt="" loading="lazy"></div>
-      <div class="lang-body"><span class="glyph">中</span><h3>中文</h3><small>ครูจีน</small><p>ใช้ภาษาจริงและโต้ตอบกับคุณครูในทุกบทเรียน</p></div>
+    <article class="lcard zh reveal" data-say="你好！欢迎来到我们的学校。" data-lang="zh-CN">
+      <div class="lc-glyph"><span>你</span><span>好</span><span>学</span></div>
+      <div class="lc-body">
+        <small>中文 · ครูจีน</small>
+        <h3 class="lc-hello">你好 <em>nǐ hǎo</em></h3>
+        <p>ใช้ภาษาจริงและโต้ตอบกับคุณครูในทุกบทเรียน</p>
+        <button class="say">🔊 ฟังเสียง</button>
+      </div>
     </article>
   </div>
-  <div class="wrap chips reveal">
-    <span>เรียนฟรี</span><span>Active Learning</span><span>Smart Classroom</span><span>ประเมินครูทุกภาคเรียน</span>
+
+  <div class="wrap thaiday">
+    <div class="td-head reveal">
+      <p class="kicker red">THAI LANGUAGE DAY</p>
+      <h3><span class="nw">วันสุนทรภู่</span> · <span class="nw">วันภาษาไทย</span></h3>
+      <p>นักเรียนแต่งกายเป็นตัวละครจากวรรณคดีไทย สืบสานภาษาและวัฒนธรรม</p>
+    </div>
+    <figure class="td-img reveal wipe"><img src="img/new/m05.jpg" alt="ตัวละครวรรณคดีไทย" loading="lazy"></figure>
+    <figure class="td-img reveal wipe"><img src="img/new/m02.jpg" alt="นักเรียนแต่งกายวันภาษาไทย" loading="lazy"></figure>
+    <figure class="td-img reveal wipe"><img src="img/new/m03.jpg" alt="การแสดงวันสุนทรภู่" loading="lazy"></figure>
   </div>
 </section>
 
@@ -250,22 +305,43 @@
   </div>
 </section>
 
-<!-- ========== GALLERY ========== -->
-<section id="gallery" class="sec dark">
-  <canvas class="sparkle"></canvas>
-  <div class="wrap center">
-    <p class="kicker reveal">GALLERY</p>
-    <h2 class="reveal light">ภาพกิจกรรม <em>ในรั้วโรงเรียน</em></h2>
-    <p class="sub light reveal">แตะที่ภาพเพื่อดูขนาดใหญ่</p>
+<!-- ========== HORIZONTAL: เรียนรู้นอกห้องเรียน ========== -->
+<section class="hz-sec" id="explore">
+  <div class="hz-sticky">
+    <div class="hz-head">
+      <p class="kicker">LEARNING BEYOND THE CLASSROOM</p>
+      <h2 class="light">เรียนรู้ <em>นอกห้องเรียน</em></h2>
+    </div>
+    <div class="hz-track" id="hzTrack">
+      <figure class="hz-card"><img src="img/new/m04.jpg" alt="" loading="lazy"><figcaption><b>01</b>ทัศนศึกษาพิพิธภัณฑ์</figcaption></figure>
+      <figure class="hz-card"><img src="img/new/m01.jpg" alt="" loading="lazy"><figcaption><b>02</b>ชมการแสดงวิทยาศาสตร์</figcaption></figure>
+      <figure class="hz-card tall"><img src="img/new/m00.jpg" alt="" loading="lazy"><figcaption><b>03</b>ศิลปะสร้างสรรค์</figcaption></figure>
+      <figure class="hz-card"><img src="img/new/n02.jpg" alt="" loading="lazy"><figcaption><b>04</b>ร่วมขบวนประเพณี</figcaption></figure>
+      <figure class="hz-card"><img src="img/new/n26.jpg" alt="" loading="lazy"><figcaption><b>05</b>สนุกกับเพื่อน</figcaption></figure>
+      <figure class="hz-card"><img src="img/new/n10.jpg" alt="" loading="lazy"><figcaption><b>06</b>ชุมชนร่วมใจ</figcaption></figure>
+    </div>
   </div>
-  <div class="wrap masonry" id="masonry"></div>
+</section>
+
+<!-- ========== GALLERY: วงแหวน 3 มิติ ========== -->
+<section id="gallery" class="ring-sec">
+  <div class="ring-sticky">
+    <canvas class="sparkle"></canvas>
+    <div class="ring-head">
+      <p class="kicker">GALLERY 360°</p>
+      <h2 class="light">ภาพกิจกรรม <em>ในรั้วโรงเรียน</em></h2>
+      <p class="sub light">เลื่อนจอหรือลากเพื่อหมุน · แตะภาพเพื่อดูขนาดใหญ่</p>
+    </div>
+    <div class="ring-stage" id="ringStage"><div class="ring" id="ring"></div></div>
+    <div class="masonry" id="masonry" hidden></div>
+  </div>
 </section>
 
 <!-- ========== AWARDS ========== -->
 <section id="awards" class="sec paper">
   <div class="wrap center">
     <p class="script reveal">Recognition</p>
-    <h2 class="reveal">รางวัล <em>และการยอมรับ</em></h2>
+    <h2 class="reveal split">รางวัล <em>และการยอมรับ</em></h2>
   </div>
   <div class="wrap award-grid">
     <article class="award reveal"><div class="medal">★</div><h3>รางวัลส่งเสริมการศึกษาดีเด่น</h3><p>โครงการ 1 ล้านกล้าความดี ตอบแทนคุณแผ่นดิน โดยมูลนิธิเพื่อสังคมไทย มอบแก่ นายปราโมทย์ ฉันทมิตร์</p></article>
@@ -307,6 +383,12 @@
 </div>
 <a href="#top" id="toTop" aria-label="กลับด้านบน">↑</a>
 
+<div id="cursor" aria-hidden="true"><span></span></div>
+<div class="grain" aria-hidden="true"></div>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="assets/app.js"></script>
+<script src="assets/hero3d.js"></script>
+<script src="assets/morph3d.js"></script>
 </body>
 </html>
